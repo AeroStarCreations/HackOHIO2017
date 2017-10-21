@@ -33,3 +33,17 @@ gs.setApiCredential("device")
 gs.setAvailabilityCallback(availabilityCallback)
 --Connect to your game's backend
 gs.connect()
+
+--------------------Authentication
+--Build request
+local requestBuilder = gs.getRequestBuilder()
+local deviceAuthenticationRequest = requestBuilder.createDeviceAuthenticationRequest()
+
+--Set values
+deviceAuthenticationRequest:setDeviceId("1111")
+deviceAuthenticationRequest:setDeviceOS("Corona")
+
+--Send and print authentication token
+deviceAuthenticationRequest:send(function(authenticationResponse)
+writeText("token: "..authenticationResponse:getAuthToken().."\n")
+end)
