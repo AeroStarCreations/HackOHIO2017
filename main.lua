@@ -3,6 +3,10 @@
 -- main.lua
 --
 -----------------------------------------------------------------------------------------
+red = {192/255, 57/255, 43/255}
 
 -- Your code here
+local composer = require("composer")
 print "Hello World"
+
+composer.gotoScene("camera")
