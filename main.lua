@@ -38,14 +38,36 @@ gs.connect()
 --Build request
 local requestBuilder = gs.getRequestBuilder()
 local deviceAuthenticationRequest = requestBuilder.createDeviceAuthenticationRequest()
+local saveLocationRequest = requestBuilder.createLogEventRequest()
+local getLocationRequest = requestBuilder.createLogEventRequest()
 
 --Set values
 deviceAuthenticationRequest:setDeviceId(system.getInfo("deviceID"))
 deviceAuthenticationRequest:setDeviceOS(system.getInfo("platform"))
+saveLocationRequest:setEventKey("Set_Position")
+--Emily's function.
+saveLocationRequest:setEventAttribute("POS",{X=23,Y=23,Z=23})
+getLocationRequest:setEventKey("Get_Position")
 
 --Send and print authentication token
 deviceAuthenticationRequest:send(function(authenticationResponse)
     writeText("token: "..authenticationResponse:getAuthToken().."\n")
 end)
 
---delete this comment
+--Send request and check for errors
+saveLocationRequest:send(function(response)
+    if response:hasErrors() then
+        for key,value in pairs(response:getErrors()) do print(key,value) end
+    end
+end)
+
+--Send request.
+getLocationRequest:send(function(response)
+    --Process Response
+    if response:hasErrors() then--If errors then print errors
+        for key,value in pairs(response:getErrors()) do print(key,value) end
+        --Else extract the POS variable (Type table) and print the contents within it
+    else local POS = response:getScriptData().POS
+        for key,value in pairs(POS) do print(key,value) end
+    end
+end)
