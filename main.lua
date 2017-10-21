@@ -6,3 +6,4 @@
 
 -- Your code here
 print "Hello World"
+print "Multiplayer"
