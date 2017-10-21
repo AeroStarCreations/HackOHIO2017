@@ -5,6 +5,7 @@
 -----------------------------------------------------------------------------------------
 
 local GS = require("plugin.gamesparks")
+local getset = require("GetSet")
 
 local function writeText(string)
     print(string)
