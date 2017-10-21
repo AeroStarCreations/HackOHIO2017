@@ -47,3 +47,5 @@ deviceAuthenticationRequest:setDeviceOS(system.getInfo("platform"))
 deviceAuthenticationRequest:send(function(authenticationResponse)
     writeText("token: "..authenticationResponse:getAuthToken().."\n")
 end)
+
+--delete this comment
