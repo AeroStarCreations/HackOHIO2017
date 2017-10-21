@@ -1,2 +1,3 @@
 # HackOHIO2017
-# Nathan was here
+
+Nathan, Louie, Ben
