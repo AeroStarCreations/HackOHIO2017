@@ -40,10 +40,10 @@ local requestBuilder = gs.getRequestBuilder()
 local deviceAuthenticationRequest = requestBuilder.createDeviceAuthenticationRequest()
 
 --Set values
-deviceAuthenticationRequest:setDeviceId("1111")
-deviceAuthenticationRequest:setDeviceOS("Corona")
+deviceAuthenticationRequest:setDeviceId(system.getInfo("deviceID"))
+deviceAuthenticationRequest:setDeviceOS(system.getInfo("platform"))
 
 --Send and print authentication token
 deviceAuthenticationRequest:send(function(authenticationResponse)
-writeText("token: "..authenticationResponse:getAuthToken().."\n")
+    writeText("token: "..authenticationResponse:getAuthToken().."\n")
 end)
