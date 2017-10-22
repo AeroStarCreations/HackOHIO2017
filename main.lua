@@ -71,3 +71,6 @@ getLocationRequest:send(function(response)
         for key,value in pairs(POS) do print(key,value) end
     end
 end)
+
+local cameraImage = display.newRect(display.contentCenterX, display.contentCenterY, display.contentHeight, display.contentWidth)
+cameraImage.fill = { type = "camera" }
