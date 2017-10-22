@@ -21,6 +21,9 @@ settings =
 		usesPermissions =
 		{
 			"android.permission.INTERNET",
+			"android.permission.ACCESS_FINE_LOCATION",	
+			"android.permission.CAMERA",		
+			"android.permission.WRITE_EXTERNAL_STORAGE",
 		},
 	},
 
