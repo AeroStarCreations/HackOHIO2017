@@ -37,32 +37,3 @@ end
 
 Runtime:addEventListener( "location", locationHandler )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-local function takePhoto( event )
-       local photo = event.target
-       print( "photo w,h = " .. photo.width .. "," .. photo.height )
-    end
-media.capturePhoto( { listener=onCm } )
-
-
-
-
---local cameraImage = display.newRect(display.contentCenterX, display.contentCenterY, display.contentHeight, display.contentWidth)
---cameraImage.fill = { type = "camera"}
